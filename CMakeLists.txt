@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(unitree_legged_sdk)
 
-include_directories(include)
+find_package(Python3 REQUIRED)
+find_package (Python3 COMPONENTS Interpreter Development)
+
+include_directories(
+    include 
+)
 
 link_directories(lib)
 
@@ -47,3 +52,17 @@ target_link_libraries(udp_recv_test ${EXTRA_LIBS})
 # lcm server
 add_executable(lcm_server examples/lcm_server.cpp)
 target_link_libraries(lcm_server ${EXTRA_LIBS})
+
+# sw examples 
+add_executable(sw_example_torque examples/sw_example_torque.cpp)
+target_link_libraries(sw_example_torque ${EXTRA_LIBS})
+
+add_executable(sw_example_motor_state examples/sw_example_motor_state.cpp)
+target_link_libraries(sw_example_motor_state ${EXTRA_LIBS})
+
+add_executable(sw_example_motor_velocity examples/sw_example_motor_velocity.cpp)
+target_include_directories(sw_example_motor_velocity PRIVATE ${Python3_INCLUDE_DIRS})
+target_link_libraries(sw_example_motor_velocity ${EXTRA_LIBS} Python3::Python)
+
+add_executable(sw_example_foot_force examples/sw_example_foot_force.cpp)
+target_link_libraries(sw_example_foot_force ${EXTRA_LIBS})
