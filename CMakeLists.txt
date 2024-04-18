@@ -66,3 +66,6 @@ target_link_libraries(sw_example_motor_velocity ${EXTRA_LIBS} Python3::Python)
 
 add_executable(sw_example_foot_force examples/sw_example_foot_force.cpp)
 target_link_libraries(sw_example_foot_force ${EXTRA_LIBS})
+
+add_executable(sw_example_imu examples/sw_example_imu.cpp)
+target_link_libraries(sw_example_imu ${EXTRA_LIBS})
