@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(unitree_legged_sdk)
 
+find_package(Eigen3)
 find_package(Python3 REQUIRED)
 find_package (Python3 COMPONENTS Interpreter Development)
 
 include_directories(
     include 
+    ${EIGEN3_INCLUDE_DIR}
 )
 
 link_directories(lib)
@@ -69,3 +71,10 @@ target_link_libraries(sw_example_foot_force ${EXTRA_LIBS})
 
 add_executable(sw_example_imu examples/sw_example_imu.cpp)
 target_link_libraries(sw_example_imu ${EXTRA_LIBS})
+
+# utils examples
+add_executable(eigen_cwiseProduct utils_examples/eigen_cwiseProduct.cpp)
+target_link_libraries(eigen_cwiseProduct Eigen3::Eigen)
+
+add_executable(eigen_block utils_examples/eigen_block.cpp)
+target_link_libraries(eigen_block Eigen3::Eigen)

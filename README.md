@@ -13,7 +13,7 @@ not support robot: Laikago, Go1.
 ### Dependencies
 * [Boost](http://www.boost.org) (version 1.5.4 or higher)
 * [CMake](http://www.cmake.org) (version 2.8.3 or higher)
-* [LCM](https://lcm-proj.github.io) (version 1.4.0 or higher)
+* [LCM](https://lcm-proj.github.io) (version 1.4.0 or higher / 1.5.0 for ubuntu 22.04)
 ```bash
 cd lcm-x.x.x
 mkdir build
